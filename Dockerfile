@@ -1,7 +1,7 @@
 FROM python:3.14-slim
 
 # uv로 의존성 설치
-COPY --from=ghcr.io/astral-sh/uv:0.9.5 /uv /bin/uv
+RUN pip install --no-cache-dir uv
 WORKDIR /code
 COPY pyproject.toml uv.lock .python-version ./
 RUN uv sync --frozen --no-dev
